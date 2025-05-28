@@ -3,6 +3,7 @@
 import { useState } from "react";
 import FormInputField from "./InputField";
 import ImageUploader from "./ImageUpload";
+import RainbowButton from "./RainbowButton";
 
 export default function BirthdayWishForm() {
   const [oneWordDescription, setOneWordDescription] = useState("");
@@ -46,7 +47,9 @@ export default function BirthdayWishForm() {
       <ImageUploader />
 
       {/* submit button */}
-      <div className="flex w-full items-center justify-center"></div>
+      <div className="flex w-full items-center justify-center">
+        <RainbowButton />
+      </div>
     </div>
   );
 }
