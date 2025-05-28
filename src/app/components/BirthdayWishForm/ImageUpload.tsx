@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import GlassContainer from "./GlassContainer";
 import { Image as ImagePlaceHolderIcon, X as XIcon } from "lucide-react";
 
@@ -9,7 +9,9 @@ export default function ImageUploader() {
   // should it be that any paste would upload an image, or should it be that you
   // have to be focussed on the field first, and copy and pasting after that would
   // upload the copied image
-  const [uploadedImageUrl, setUploadedImageUrl] = useState<null | string>(null);
+  const [uploadedImageUrl, setUploadedImageUrl] = useState<
+    null | string | Blob
+  >(null);
   // const [dragActive, setDragActive] = useState(false);
   // const deviceTypeRef = useRef(false);
 
@@ -96,7 +98,7 @@ export default function ImageUploader() {
           alt="uploadedMainImage"
           id="uploaded-main-image-preview"
           className={`${uploadedImageUrl ? "" : "hidden"} h-96 w-full rounded-md p-5`}
-          src={uploadedImageUrl}
+          src={uploadedImageUrl || undefined}
         ></img>
 
         <ImagePlaceHolderIcon
