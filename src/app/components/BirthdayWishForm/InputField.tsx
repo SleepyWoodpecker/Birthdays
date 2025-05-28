@@ -17,7 +17,7 @@ export default function FormInputField({
   longerInput = false,
 }: FormInputFieldProps) {
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>,
   ) => {
     setInputValue(e.target.value);
   };
@@ -30,6 +30,7 @@ export default function FormInputField({
           className={inputClassNames}
           value={inputValue}
           onChange={handleChange}
+          placeholder={placeHolderText}
         ></textarea>
       ) : (
         <input
