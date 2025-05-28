@@ -49,7 +49,7 @@ const RainbowButton: React.FC = () => {
 
   return (
     <button
-      className="h-full w-full rounded-md p-4"
+      className="h-full w-full cursor-pointer rounded-md p-4"
       style={{
         ...colors,
         transition: `
