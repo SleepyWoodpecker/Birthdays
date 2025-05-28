@@ -11,7 +11,7 @@ export default function ImageUploader() {
   // upload the copied image
   const [uploadedImageUrl, setUploadedImageUrl] = useState<null | string>(null);
   // const [dragActive, setDragActive] = useState(false);
-  const deviceTypeRef = useRef(false);
+  // const deviceTypeRef = useRef(false);
 
   const displayUploadedImage = (image: File) => {
     const imageDisplayField = document.getElementById(
