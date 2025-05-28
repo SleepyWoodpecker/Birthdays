@@ -4,44 +4,42 @@ import GlassConatainer from "./GlassContainer";
 interface FormInputFieldProps {
   inputValue: string;
   setInputValue: Dispatch<SetStateAction<string>>;
+  placeHolderText: string;
+  longerInput?: boolean;
 }
 
+// TODO: @Shawn, add max width
+// TODO: @Shawn, remove the padding when using a text area so the bottom left corner aligns more nicely
 export default function FormInputField({
   inputValue,
   setInputValue,
+  placeHolderText,
+  longerInput = false,
 }: FormInputFieldProps) {
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement> | ChangeEvent<HTMLTextAreaElement>
+  ) => {
     setInputValue(e.target.value);
   };
+  const inputClassNames = "!outline-none w-full";
 
   return (
     <GlassConatainer>
-      <input
-        type="text"
-        value={inputValue}
-        onChange={handleChange}
-        className="!outline-none w-128"
-        placeholder="Here's the word I think best describes you"
-      />
+      {longerInput ? (
+        <textarea
+          className={inputClassNames}
+          value={inputValue}
+          onChange={handleChange}
+        ></textarea>
+      ) : (
+        <input
+          type="text"
+          value={inputValue}
+          onChange={handleChange}
+          className={inputClassNames}
+          placeholder={placeHolderText}
+        />
+      )}
     </GlassConatainer>
   );
 }
-
-// module.exports = {
-//   content: [
-//     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-//     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-//     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-//   ],
-//   theme: {
-//     extend: {
-//       colors: {
-//         formgray: {
-//           100: "#858585",
-//           200: "#939597",
-//         },
-//       },
-//     },
-//   },
-//   plugins: [],
-// };
