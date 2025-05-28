@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import FormInputField from "./InputField";
+import ImageUploader from "./ImageUpload";
 
 export default function BirthdayWishForm() {
   const [oneWordDescription, setOneWordDescription] = useState("");
@@ -14,7 +15,7 @@ export default function BirthdayWishForm() {
   //
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-4 px-48">
       {/* form title */}
 
       {/* form fields */}
@@ -40,6 +41,7 @@ export default function BirthdayWishForm() {
       </form>
 
       {/* images that you can upload */}
+      <ImageUploader />
     </div>
   );
 }

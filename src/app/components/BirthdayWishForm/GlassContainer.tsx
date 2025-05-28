@@ -1,8 +1,17 @@
-export default function GlassContainer({ children }: React.PropsWithChildren) {
+interface GlassContainerProps extends React.PropsWithChildren {
+  disableHover?: boolean;
+}
+
+export default function GlassContainer({
+  children,
+  disableHover = false,
+}: GlassContainerProps) {
   return (
     // add inline-block here to let div shrink to the size of its children
-    <div className="inline-block bg-[#3d3464] rounded-lg">
-      <div className="rounded-lg border-b border-[#4d4474] hover:bg-[#4d4474] transition-colors cursor-pointer p-2">
+    <div className="inline-block rounded-lg bg-[#3d3464]">
+      <div
+        className={`cursor-pointer rounded-lg border-b border-[#4d4474] p-2 transition-colors ${disableHover ? "" : "hover:bg-[#4d4474]"}`}
+      >
         {children}
       </div>
     </div>
