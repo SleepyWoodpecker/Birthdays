@@ -13,14 +13,16 @@ export default function BirthdayWishForm() {
   // Dear XYZ (should be a title field that can be changed if you have a nickname for them)
   // Here's one word I think best describes you:
   //
+  const formGap = 4;
 
   return (
-    <div className="flex flex-col gap-4 px-48">
+    <div className={`flex max-w-xl flex-1 flex-col gap-${formGap} `}>
       {/* form title */}
+      <h1>Dear OPs</h1>
 
       {/* form fields */}
       <form>
-        <div className="flex flex-col gap-4">
+        <div className={`flex flex-col gap-${formGap}`}>
           <FormInputField
             inputValue={oneWordDescription}
             setInputValue={setOneWordDescription}
@@ -42,6 +44,9 @@ export default function BirthdayWishForm() {
 
       {/* images that you can upload */}
       <ImageUploader />
+
+      {/* submit button */}
+      <div className="flex w-full items-center justify-center"></div>
     </div>
   );
 }
