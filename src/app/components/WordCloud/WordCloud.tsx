@@ -35,7 +35,6 @@ interface WordPosition {
   glow: boolean;
   x: number;
   y: number;
-  rotation: number;
 }
 
 export default function Component() {
@@ -145,7 +144,6 @@ export default function Component() {
               ...word,
               x: xPercent,
               y: yPercent,
-              rotation: 0,
             };
             placedBoxes.push(box);
           }
@@ -160,7 +158,6 @@ export default function Component() {
             ...word,
             x: xPercent,
             y: yPercent,
-            rotation: 0,
           };
         }
 
